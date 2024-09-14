@@ -1,0 +1,32 @@
+.list-container {
+  margin-top: 100px;
+  padding-left: 80px;
+  .line{
+    height: 30px;
+    width: 4px;
+    background-color: red;
+  }
+
+  .todays {
+    color: red;
+    text-align: left;
+  }
+
+  .sale-title {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .products-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    overflow: scroll;
+  }
+  .row{
+    flex-direction: row;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+  }
+}
