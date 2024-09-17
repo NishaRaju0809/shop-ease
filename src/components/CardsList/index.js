@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 
 import Card from "../Card";
-import "./styles.css";
+import "./styles.scss";
 
 const CardsList = () => {
   const [products, setProducts] = useState([]);
@@ -26,7 +26,7 @@ const CardsList = () => {
 
         <div className="products-container">
           {products.map((item) => {
-            return <Card product={item} />;
+            return <Card key={item.id} product={item} />;
           })}
         </div>
       </div>

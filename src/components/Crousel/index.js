@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import dummyImg1 from "../../assets/images/dummyImg1.png";
 import dummyImg2 from "../../assets/images/dummyImg2.png";
-import './styles.css';
+import './styles.scss';
 
 const Carousel = () => {
   const settings = {
@@ -16,6 +16,8 @@ const Carousel = () => {
     slidesToScroll: 1,
     swipe: true,
     touchMove: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
   };
 
   return (

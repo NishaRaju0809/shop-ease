@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../Card/styles.css";
+import "../Card/styles.scss";
 import { ReactComponent as StarIcon } from "../../assets/icons/icStar.svg";
 import { ReactComponent as StarHalfFilledIcon } from "../../assets/icons/icHalfFilledStar.svg";
 

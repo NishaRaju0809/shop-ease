@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Outlet, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 
-import "./styles.css";
+import "./styles.scss";
 
 const Navigation = () => {
   const location = useLocation();
@@ -35,7 +35,7 @@ const Navigation = () => {
           </Link>
           <Link
             className={`nav-name ${
-              location.pathname === "/contact" ? "active" : ""
+              location.pathname === "/signup" ? "active" : ""
             }`}
             to="/signup"
           >
