@@ -19,7 +19,7 @@ const Card = ({ product }) => {
     <div className="product-container">
       <img src={image} alt="product-image" className="product-image" />
       <h4  className="product-title">{title}</h4>
-      <h4 className="product-price">₹ {price}</h4>
+      <h4 className="product-price">$ {price}</h4>
       <div className="rating-container">
         <div className="stars">
           {Array.from({ length: 5 }, (_, index) => (

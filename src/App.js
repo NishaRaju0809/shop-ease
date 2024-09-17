@@ -3,7 +3,8 @@ import { Route, Routes } from "react-router";
 import "./App.css";
 import Home from "./routes/Home";
 import Navigation from '../src/navigation'
-import Signup from "./routes/Signup";
+import Signup from "./routes/Auth/Signup";
+import Login from "./routes/Auth/Login";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="contact" element={<Contacts />}/>
         <Route path="signup" element={<Signup />}/>
+        <Route path="login" element={<Login />}/>
       </Route>
     </Routes>
   );
