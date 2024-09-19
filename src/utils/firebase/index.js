@@ -5,6 +5,7 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { getFirestore, getDoc, doc, setDoc } from "firebase/firestore/lite";
 
@@ -50,6 +51,7 @@ export const createUserDoc = async (userCredentials) => {
 export const createAuthUserWithEmail = async (userCredentials) => {
   const { email, password, name } = userCredentials;
   const { user } = await createUserWithEmailAndPassword(auth, email, password);
+  console.log('user:', user);
   await createUserDoc({ ...user, displayName: name });
 };
 
@@ -57,4 +59,9 @@ export const loginAuthUserWithEmail = async (userCredentials) => {
   const { email, password } = userCredentials;
   const { user } = await signInWithEmailAndPassword(auth, email, password);
   return user;
+};
+
+export const resetPassword = async (email) => {
+  const response = await sendPasswordResetEmail(auth, email);
+  console.log("response:", response);
 };

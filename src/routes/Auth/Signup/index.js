@@ -30,6 +30,7 @@ export const Signup = () => {
       console.log("error:", error);
     }
   };
+  console.log('input:', input);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -48,6 +49,9 @@ export const Signup = () => {
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("Cannot create user.User already exists!.If it's your email please login");
+      }
+      if (error.code === "auth/invalid-email") {
+        alert("Please enter valid email");
       }
     }
   };
@@ -73,7 +77,7 @@ export const Signup = () => {
             value={input.name}
           />
           <Input
-            label={"Email or Phone Number"}
+            label={"Email Address"}
             type={"email"}
             name={"email"}
             onChange={handleChange}
@@ -93,7 +97,7 @@ export const Signup = () => {
             onChange={handleChange}
             value={input.confirmPassword}
           />
-          <Button width={"100%"} type={"button"} onClick={handleSignup}>
+          <Button width={"100%"} type={"submit"}>
             Create Account
           </Button>
         </form>

@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
-import {
-  loginAuthUserWithEmail,
-} from "../../../utils/firebase";
+import { resetPassword } from "../../../utils/firebase";
 import Input from "../../../components/Input";
 import signupImage from "../../../assets/images/singup.png";
 import "./styles.scss";
@@ -11,23 +8,23 @@ import Button from "../../../components/Button";
 
 const defaultFormFields = {
   email: "",
-  password: "",
 };
 
-export const Login = () => {
+export const ForgetPassword = () => {
   const [input, setInput] = useState(defaultFormFields);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await loginAuthUserWithEmail(input);
-      alert("Login successfull!");
+      await resetPassword(input.email);
+      alert(
+        "Password reset e-mail has been sent to your email. You will get the email if your account associated with us."
+      );
       setInput({
         email: "",
-        password: "",
       });
     } catch (error) {
-      console.log('error.code:', error.code)
+      console.log("error.code:", error.code);
       if (error.code === "auth/invalid-credential") {
         alert("Invalid credentials!");
       }
@@ -43,8 +40,8 @@ export const Login = () => {
     <div className="signup-container">
       <img src={signupImage} arc="image" />
       <div className="form-container">
-        <h1 className="create-account-heading">Log in to Shop Ease</h1>
-        <h4 className="create-account-subheading">Enter your details below</h4>
+        <h1 className="create-account-heading">Forgot Password?</h1>
+        <h4 className="create-account-subheading">Enter your email below</h4>
 
         <form onSubmit={handleSubmit}>
           <Input
@@ -54,18 +51,10 @@ export const Login = () => {
             onChange={handleChange}
             value={input.email}
           />
-          <Input
-            label={"Password"}
-            type={"password"}
-            name={"password"}
-            onChange={handleChange}
-            value={input.password}
-          />
-          <div className="buttons-container">
-            <Button type={"submit"} onClick={handleSubmit}>
-              Log in
+          <div>
+            <Button width={"100%"} type={"submit"} onClick={handleSubmit}>
+              Send Email
             </Button>
-            <Link to={'/resetPassword'} className="forget-password">Forget Password?</Link>
           </div>
         </form>
       </div>
@@ -73,4 +62,4 @@ export const Login = () => {
   );
 };
 
-export default Login;
+export default ForgetPassword;
