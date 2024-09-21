@@ -11,11 +11,16 @@ const Button = ({
   marginBottom = 0,
   marginLeft = 0,
   marginRight = 0,
-  width
+  width,
+  onClick,
 }) => {
-
   return (
-    <button style={{marginTop, marginBottom, marginLeft, marginRight, width}} type={type} className={`button ${variant}`}>
+    <button
+      onClick={onClick}
+      style={{ marginTop, marginBottom, marginLeft, marginRight, width }}
+      type={type}
+      className={`button ${variant}`}
+    >
       {Icon && <Icon className={"button-icon"} />}
       {children}
     </button>

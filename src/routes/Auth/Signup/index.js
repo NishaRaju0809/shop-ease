@@ -30,7 +30,6 @@ export const Signup = () => {
       console.log("error:", error);
     }
   };
-  console.log('input:', input);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -105,7 +104,7 @@ export const Signup = () => {
         <Button
           width={"100%"}
           marginTop={20}
-          type={"google-button"}
+          type={"google"}
           Icon={GoogleIcon}
           variant="outlined"
           onClick={handleSignup}

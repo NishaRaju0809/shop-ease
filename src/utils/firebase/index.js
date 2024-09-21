@@ -6,6 +6,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
+  onAuthStateChanged,
 } from "firebase/auth";
 import { getFirestore, getDoc, doc, setDoc } from "firebase/firestore/lite";
 
@@ -51,7 +52,6 @@ export const createUserDoc = async (userCredentials) => {
 export const createAuthUserWithEmail = async (userCredentials) => {
   const { email, password, name } = userCredentials;
   const { user } = await createUserWithEmailAndPassword(auth, email, password);
-  console.log('user:', user);
   await createUserDoc({ ...user, displayName: name });
 };
 
@@ -62,6 +62,9 @@ export const loginAuthUserWithEmail = async (userCredentials) => {
 };
 
 export const resetPassword = async (email) => {
-  const response = await sendPasswordResetEmail(auth, email);
-  console.log("response:", response);
+  await sendPasswordResetEmail(auth, email);
+};
+
+export const authStateChangeListener = (callback) => {
+  onAuthStateChanged(auth, callback);
 };

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import { Outlet, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 
@@ -6,9 +6,12 @@ import "./styles.scss";
 import { ReactComponent as Cart } from "../assets/icons/icCart.svg";
 import { ReactComponent as Wishlist } from "../assets/icons/icWishlist.svg";
 import logo from "../assets/images/logo.png";
+import { UserContext } from "../store/userContext";
 
 const Navigation = () => {
+  const {user} = useContext(UserContext)
   const location = useLocation();
+  console.log('context:', user);
   return (
     <Fragment>
       <div className="nav-container">
@@ -36,14 +39,21 @@ const Navigation = () => {
           >
             About
           </Link>
-          <Link
+         {user?  <Link
+            className={`nav-name ${
+              location.pathname === "/signup" ? "active" : ""
+            }`}
+            to="/signup"
+          >
+            Sign out
+          </Link>:  <Link
             className={`nav-name ${
               location.pathname === "/signup" ? "active" : ""
             }`}
             to="/signup"
           >
             Sign Up
-          </Link>
+          </Link>}
         </div>
         <div>
           <Wishlist height={40} width={40} />
