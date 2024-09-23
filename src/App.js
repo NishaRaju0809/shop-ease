@@ -6,6 +6,7 @@ import Navigation from '../src/navigation'
 import Signup from "./routes/Auth/Signup";
 import Login from "./routes/Auth/Login";
 import ForgetPassword from "./routes/Auth/ForgetPassword";
+import Shop from "./routes/Main/Shop";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="signup" element={<Signup />}/>
         <Route path="login" element={<Login />}/>
         <Route path="resetPassword" element={<ForgetPassword />}/>
+        <Route path="shop" element={<Shop />}/>
       </Route>
     </Routes>
   );

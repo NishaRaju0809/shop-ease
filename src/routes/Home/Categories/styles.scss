@@ -1,0 +1,43 @@
+.categories-list-container {
+    margin-top: 30px;
+    padding-left: 80px;
+    padding-right: 0px;
+    margin-bottom: 80px;
+  
+    .line {
+      height: 30px;
+      width: 4px;
+      background-color: red;
+    }
+  
+    .todays {
+      color: red;
+      text-align: left;
+    }
+  
+    .sale-title {
+      text-align: left;
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .category-name{
+        font-weight: normal;
+    }
+  
+    .products-container {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      overflow: scroll;
+    }
+    .row {
+      flex-direction: row;
+      gap: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .view-button {
+      margin-top: 20px;
+    }
+  }

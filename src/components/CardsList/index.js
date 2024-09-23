@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 
 import Card from "../Card";
+import Button from "../../components/Button";
 import "./styles.scss";
 
 const CardsList = () => {
@@ -18,7 +19,7 @@ const CardsList = () => {
     <Fragment>
       <div className="list-container">
         <div className="row">
-          <div className="line"/>
+          <div className="line" />
           <h4 className="todays">Today’s</h4>
         </div>
 
@@ -29,6 +30,13 @@ const CardsList = () => {
             return <Card key={item.id} product={item} />;
           })}
         </div>
+        <Button
+          width={"20%"}
+          marginTop={20}
+          type={"view-all"}
+        >
+          View All Products
+        </Button>
       </div>
     </Fragment>
   );

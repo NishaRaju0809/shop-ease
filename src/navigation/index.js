@@ -9,9 +9,9 @@ import logo from "../assets/images/logo.png";
 import { UserContext } from "../store/userContext";
 
 const Navigation = () => {
-  const {user} = useContext(UserContext)
+  const { user } = useContext(UserContext);
   const location = useLocation();
-  console.log('context:', user);
+  console.log("context:", user);
   return (
     <Fragment>
       <div className="nav-container">
@@ -25,35 +25,40 @@ const Navigation = () => {
           </Link>
           <Link
             className={`nav-name ${
+              location.pathname === "/shop" ? "active" : ""
+            }`}
+            to="/shop"
+          >
+            Shop
+          </Link>
+          <Link
+            className={`nav-name ${
               location.pathname === "/contact" ? "active" : ""
             }`}
             to="/contact"
           >
             Contact
           </Link>
-          <Link
-            className={`nav-name ${
-              location.pathname === "/contact" ? "active" : ""
-            }`}
-            to="/about"
-          >
-            About
-          </Link>
-         {user?  <Link
-            className={`nav-name ${
-              location.pathname === "/signup" ? "active" : ""
-            }`}
-            to="/signup"
-          >
-            Sign out
-          </Link>:  <Link
-            className={`nav-name ${
-              location.pathname === "/signup" ? "active" : ""
-            }`}
-            to="/signup"
-          >
-            Sign Up
-          </Link>}
+
+          {user ? (
+            <Link
+              className={`nav-name ${
+                location.pathname === "/signup" ? "active" : ""
+              }`}
+              to="/signup"
+            >
+              Sign out
+            </Link>
+          ) : (
+            <Link
+              className={`nav-name ${
+                location.pathname === "/signup" ? "active" : ""
+              }`}
+              to="/signup"
+            >
+              Sign Up
+            </Link>
+          )}
         </div>
         <div>
           <Wishlist height={40} width={40} />

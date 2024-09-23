@@ -1,7 +1,9 @@
 .list-container {
   margin-top: 100px;
   padding-left: 80px;
-  .line{
+  padding-right: 0px;
+
+  .line {
     height: 30px;
     width: 4px;
     background-color: red;
@@ -15,6 +17,7 @@
   .sale-title {
     text-align: left;
     margin-bottom: 10px;
+    font-weight: 400;
   }
 
   .products-container {
@@ -23,10 +26,13 @@
     gap: 30px;
     overflow: scroll;
   }
-  .row{
+  .row {
     flex-direction: row;
     gap: 10px;
     display: flex;
     align-items: center;
+  }
+  .view-button {
+    margin-top: 20px;
   }
 }

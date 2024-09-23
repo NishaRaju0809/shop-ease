@@ -1,5 +1,6 @@
 import CardsList from "../../components/CardsList";
 import Carousel from '../../components/Crousel'
+import Categories from "./Categories";
 
 function Home() {
   return (
@@ -8,6 +9,9 @@ function Home() {
         <Carousel/>
         <div>
           <CardsList />
+        </div>
+        <div>
+          <Categories />
         </div>
       </div>
     </div>
